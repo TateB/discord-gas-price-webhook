@@ -1,0 +1,18 @@
+name = "discord-gas-price-webhook"
+type = "javascript"
+account_id = ""
+workers_dev = true
+
+kv_namespaces = [
+    { binding = "KV_DATA", preview_id = "", id = "" }
+]
+
+[vars]
+GAS_ESTIMATE_REGISTRATION = 285000
+GAS_ESTIMATE_RENEWAL = 110000
+DISCORD_ROLE_ID = ""
+TARGET_GAS_PRICE = 60
+MINIMUM_MINUTES_INTERVAL = 30
+
+[triggers]
+crons = ["*/5 * * * *"]
