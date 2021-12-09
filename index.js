@@ -48,7 +48,8 @@ async function handleScheduled(event) {
 
   const etherscanApiUrl = 'https://api.etherscan.io/api?'
   const gasPriceData = await fetch(etherscanApiUrl + "module=gastracker&action=gasoracle&apikey=" + ETHERSCAN_API_KEY).then((res) => res.json())
-  const gasPrice = gasPriceData.result.ProposeGasPrice
+  const gasPrice = parseInt(gasPriceData.result.ProposeGasPrice)
+  console.log(gasPrice, TARGET_GAS_PRICE)
   if (gasPrice >= TARGET_GAS_PRICE) return
   const ethPriceData = await fetch(etherscanApiUrl + "module=stats&action=ethprice&apikey=" + ETHERSCAN_API_KEY).then((res) => res.json())
   const ethUsdPrice = ethPriceData.result.ethusd
